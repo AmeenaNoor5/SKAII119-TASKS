@@ -1,1 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task Assistant</title>
+    <style>
+        .chat-container {
+            width: 300px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+        .chat-message {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container" id="chat-container">
+        <div class="chat-message chatbot">Chatbot: Hello! How can I assist you today?</div>
+    </div>
+    
+    <form id="message-form">
+        <input type="text" id="user-message" placeholder="Type your message here...">
+        <button type="submit">Send</button>
+    </form>
 
+    <script>
+        document.getElementById('message-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting normally
+            
+            var userMessage = document.getElementById('user-message').value;
+            sendMessage(userMessage);
+            document.getElementById('user-message').value = ''; // Clear the input field
+        });
+
+        function sendMessage(message) {
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/message', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    document.getElementById('chat-container').innerHTML += xhr.responseText;
+                }
+            };
+            xhr.send('user_message=' + encodeURIComponent(message));
+        }
+    </script>
+</body>
+</html>
