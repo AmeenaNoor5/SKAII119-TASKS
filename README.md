@@ -13,3 +13,10 @@ During execution, the user provides input, and the program predicts the next wor
 
 TASK2-FACE RECOGNIZATION 
 
+This task implements a basic facial recognition system using OpenCV, demonstrating how biometric technology can be applied to identify or verify a person’s identity in real-time. The program captures video from the default camera and utilizes a pre-trained Haar Cascade classifier, specifically the haarcascade_frontalface_default.xml file, which contains data for detecting frontal faces.This application of facial recognition technology, commonly used in security and law enforcement, in a straightforward and accessible manner.
+
+TASK3-Automated Attendance System
+This task demonstrates an AI-powered attendance tracking system using facial recognition. It utilizes OpenCV for real-time face detection and OpenPyXL for recording attendance in an Excel spreadsheet. The program captures video, detects faces using the haarcascade_frontalface_default.xml classifier, and records the user's ID and attendance status in attendance.xlsx. Users are prompted to enter their ID, and the system logs their presence upon detecting their face. The process continues until the 'Esc' key is pressed, saving the attendance data and closing all resources. This system provides a practical, contactless solution for automated attendance tracking.
+
+
+
